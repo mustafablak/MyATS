@@ -10,7 +10,6 @@ An advanced, full-stack Applicant Tracking System (ATS) designed to evaluate, sc
 
 ## 🎥 System Demo
 
-> **Note:** The ranking happens entirely locally using a Hugging Face NLP model.
 ![MyATS Demo](./demo.gif)
 
 ---
@@ -66,9 +65,9 @@ pip install -r requirements.txt
 uvicorn app.api.main:app --reload
 ```
 The backend will be available at http://127.0.0.1:8000
-```bash
+
 2. Frontend Setup
-Bash
+```bash
 cd frontend
 npm install
 npm run dev
