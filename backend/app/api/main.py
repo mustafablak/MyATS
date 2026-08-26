@@ -2,6 +2,7 @@ from fastapi import FastAPI, UploadFile, File, Form
 from typing import List
 import pdfplumber
 import io
+from fastapi.middleware.cors import CORSMiddleware
 import re
 from sentence_transformers import SentenceTransformer, util
 
@@ -9,6 +10,13 @@ app = FastAPI(
     title="MyAPI",
     description="AI-Powered Dynamic CV Evaluation Engine",
     version="1.0.0"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 ai_model = None
