@@ -20,13 +20,29 @@ app.add_middleware(
 )
 
 ai_model = None
+# Dinamik Kelime Ayıklayıcı (Genişletilmiş Filtre)
 def extract_dynamic_keywords(text: str) -> list:
     stop_words = {
+        # İngilizce Temel Bağlaç ve Edatlar
         "and", "or", "the", "for", "with", "from", "this", "that", "are", "you", "we", "our", 
-        "ve", "veya", "ile", "için", "bir", "gibi", "olan", "olarak", "arayan", "arar", "looking", 
-        "seeking", "çok", "daha", "en", "iyi", "takım", "çalışma", "arkadaşı", "uzun", "dönem"
+        "in", "an", "as", "is", "of", "to", "on", "at", "by", "it", "be", "am", "was", "were",
+        "has", "have", "had", "do", "does", "did", "but", "if", "not", "no", "can", "will", "a",
+        "which", "who", "whom", "whose", "how", "what", "where", "when", "why", "their", "they",
+        
+        # Türkçe Temel Bağlaç ve Kelimeler
+        "ve", "veya", "ile", "için", "bir", "gibi", "olan", "olarak", "arayan", "arar", 
+        "çok", "daha", "en", "iyi", "takım", "çalışma", "arkadaşı", "uzun", "dönem", "biz",
+        
+        # İlanlardaki Genel/Teknik Olmayan Kalıp Kelimeler
+        "looking", "seeking", "experience", "developing", "modern", "applications", "candidate",
+        "software", "using", "projects", "engineer", "frameworks", "development", "work", "skills",
+        "requirements", "knowledge", "understanding", "good", "strong", "team", "years", "environment"
     }
+    
+    # Sadece 2 harf ve üzeri kelimeleri al (C#, AI, IT gibi terimleri kaçırmamak için)
     words = re.findall(r'\b[a-z0-9+#-]{2,}\b', text.lower())
+    
+    # Filtreden geçemeyen (stop_words içinde olmayan) gerçek teknik terimleri listele
     return list(set(word for word in words if word not in stop_words))
 
 @app.on_event("startup")
