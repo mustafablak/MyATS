@@ -15,7 +15,7 @@ An advanced, full-stack Applicant Tracking System (ATS) designed to evaluate, sc
 
 ---
 
-## 🧠 The Architecture: How It Works
+## The Architecture: How It Works
 
 Traditional ATS systems rely heavily on exact keyword matching, missing out on semantic context. Simple AI models, on the other hand, often give high scores to irrelevant CVs just because they have a similar "tone." 
 
@@ -27,7 +27,7 @@ MyATS solves this with a **Hybrid Scoring System (30% AI + 70% Keyword Matrix)**
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 * **Multi-CV Batch Processing:** Upload dozens of PDFs simultaneously.
 * **Universal Application:** Works for any industry (Software, Marketing, Culinary, etc.) dynamically.
@@ -37,7 +37,7 @@ MyATS solves this with a **Hybrid Scoring System (30% AI + 70% Keyword Matrix)**
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend (User Interface)
 * **React 18 & Vite:** For lightning-fast rendering and build times.
@@ -64,12 +64,13 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 uvicorn app.api.main:app --reload
-
+```
 The backend will be available at http://127.0.0.1:8000
-
+```bash
 2. Frontend Setup
 Bash
 cd frontend
+```
 
 npm install
 
