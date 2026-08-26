@@ -66,7 +66,7 @@ uvicorn app.api.main:app --reload
 ```
 The backend will be available at http://127.0.0.1:8000
 
-2. Frontend Setup
+### 2. Frontend Setup
 ```bash
 cd frontend
 npm install
