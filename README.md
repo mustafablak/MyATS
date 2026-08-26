@@ -70,10 +70,7 @@ The backend will be available at http://127.0.0.1:8000
 2. Frontend Setup
 Bash
 cd frontend
-```
-
 npm install
-
 npm run dev
-
+```
 The UI will be available at http://localhost:5173
